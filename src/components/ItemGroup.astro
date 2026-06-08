@@ -1,0 +1,36 @@
+<div
+  class="*:before:content-[''] *:before:w-20 gap-3 item-group overflow-hidden"
+>
+  <slot />
+</div>
+<style is:global>
+  .item-group :first-child::before {
+    background-image: radial-gradient(
+        circle,
+        var(--color-orange-400) 25%,
+        var(--color-orange-500) 50%,
+        transparent 51%
+      ),
+      linear-gradient(var(--color-orange-500), var(--color-orange-500));
+    background-size:
+      60px 60px,
+      5px 50%;
+
+    background-position:
+      center center,
+      bottom center;
+
+    background-repeat: no-repeat;
+  }
+  .item-group ::before {
+    background-image: linear-gradient(
+      var(--color-orange-500),
+      var(--color-orange-500)
+    );
+    background-size: 5px 100%;
+
+    background-position: bottom center;
+
+    background-repeat: no-repeat;
+  }
+</style>

@@ -1,0 +1,205 @@
+---
+import { Image } from "astro:assets";
+import Me from "../images/me.jpeg";
+import Item from "../components/Item.astro";
+import ItemGroup from "../components/ItemGroup.astro";
+import "../styles/global.css";
+import "sal.js/dist/sal.css";
+
+const skills = [
+  "TypeScript",
+  "JavaScript",
+  "React",
+  "HTML & CSS",
+  "Next JS",
+  "React Native",
+  "Tailwind CSS",
+  "UI/UX Design",
+  "Frontend Development",
+  "Strapi",
+  "Headless CMS",
+  "REST APIs",
+  "Git, CI/CD and Security",
+  "Python",
+  "Go",
+  "Cloudflare",
+  "Figma",
+  "SQL",
+  "NoSQL",
+  "Docker",
+  "Linux",
+  "Cloud",
+  "AI Tools(Agentic Tools)",
+  "Responsive Design",
+];
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Blessed Rafael Saigarai</title>
+  </head>
+  <body>
+    <div class="px-3 lg:mx-auto max-w-3xl mt-8 lg:mt-32 prose mb-32">
+      <div class="md:flex gap-3 not-prose">
+        <Image
+          src={Me}
+          alt="Blessed Rafael Saigarai"
+          class="rounded-md w-32 h-40 object-cover shrink-0"
+          width={320}
+          height={400}
+          quality={92}
+          densities={[1, 2]}
+        />
+        <div class="">
+          <h1 class="text-5xl font-medium mb-0 text-balance">
+            Hi, I'm&nbsp;<span
+              class="decoration-wavy underline decoration-orange-500"
+              >Blessed Rafael Saigarai</span
+            >
+          </h1>
+          <div class="flex items-center gap-2 mt-3">
+            <a
+              href="https://github.com/akili-frontend"
+              class="text-gray-400 hover:text-gray-500 duration-100"
+              aria-label="GitHub (akili-frontend)"
+              ><span class="i-cib-github w-6 h-6"></span></a
+            >
+            <a
+              href="https://github.com/Masai2005"
+              class="text-gray-400 hover:text-gray-500 duration-100"
+              aria-label="GitHub (Masai2005)"
+              ><span class="i-cib-github w-6 h-6"></span></a
+            >
+            <a
+              href="https://www.linkedin.com/in/blessed-rafael-saigarai-695317284/"
+              class="text-gray-400 hover:text-gray-500 duration-100"
+              aria-label="LinkedIn"
+              ><span class="i-cib-linkedin w-6 h-6"></span></a
+            >
+          </div>
+        </div>
+      </div>
+      <p>
+        I am a Design engineer and founding engineer #1 at
+        <a href="https://akilisoft.co">Akili Soft Limited</a>, a software
+        development company based in Dar es Salaam, Tanzania. I design and build
+        the interfaces behind products spanning digital payments, ERP systems,
+        and developer documentation.
+      </p>
+      <h2 class="text-4xl">Experience</h2>
+      <ItemGroup>
+        <Item
+          title="Founding Engineer #1 at Akili Soft Limited"
+          href="https://akilisoft.co"
+          startTime={new Date("2025-10-01T03:00:00.000Z")}
+          >As the first engineer at Akili Soft Limited, I lead frontend
+          development across the company's product suite — from customer-facing
+          web apps to internal tooling — using TypeScript and modern frontend
+          frameworks.
+        </Item>
+      </ItemGroup>
+      <h2 class="text-4xl">Education</h2>
+      <ItemGroup>
+        <Item
+          title="Diploma of Engineering, Electrical and Electronics Engineering — Mbeya University of Science and Technology"
+          startTime={new Date("2022-10-01T03:00:00.000Z")}
+          endTime={new Date("2025-07-01T03:00:00.000Z")}
+          >First Class (4.7/5.0). Participated in E-Mobility Research focused on charging
+          infrastructure adoption in Tanzania.
+        </Item>
+      </ItemGroup>
+      <h2 class="text-4xl">Skills</h2>
+      <ul class="not-prose flex flex-wrap gap-2 list-none p-0 m-0">
+        {
+          skills.map((skill) => (
+            <li class="px-3 py-1.5 text-sm font-medium text-slate-700 bg-slate-100 rounded-full">
+              {skill}
+            </li>
+          ))
+        }
+      </ul>
+      <h2 class="text-4xl">Projects</h2>
+      <ItemGroup>
+        <Item
+          title="DigiWakala"
+          href="https://digiwakala.com"
+          startTime={new Date("2025-10-01T03:00:00.000Z")}
+          >Operating system (Recording everything online) for mobile money agents in Tanzania.
+        </Item>
+        <Item
+          title="Akili Soft"
+          href="https://akilisoft.co"
+          startTime={new Date("2025-10-01T03:00:00.000Z")}
+          >Company website and marketing presence for Akili Soft Limited.
+        </Item>
+        <Item
+          title="Akili Soft ERP"
+          href="https://akilisofterp.com"
+          startTime={new Date("2025-10-01T03:00:00.000Z")}
+          >Enterprise resource planning platform for business operations.
+        </Item>
+        <Item
+          title="Akili Soft ERP Docs"
+          href="https://docs.akilisofterp.com"
+          startTime={new Date("2025-10-01T03:00:00.000Z")}
+          >Developer and user documentation site powered by Strapi as a
+          headless CMS.
+        </Item>
+        <Item
+          title="Akili Soft Status"
+          href="https://status.akilisoft.co"
+          startTime={new Date("2025-10-01T03:00:00.000Z")}
+          >Public uptime monitor for Akili Soft services, powered by Kerner.io.
+        </Item>
+      </ItemGroup>
+      <h2 class="text-4xl">Want to work together?</h2>
+      <p>
+        Interested in working with me on a frontend project or product? Reach
+        out on <a
+          href="https://www.linkedin.com/in/blessed-rafael-saigarai-695317284/"
+          >LinkedIn</a
+        > or connect via <a href="https://github.com/akili-frontend">GitHub</a>.
+      </p>
+    </div>
+    <div class="w-full bg-slate-100">
+      <div class="px-3 py-12 lg:mx-auto max-w-3xl m-auto">
+        <div
+          class="text-xl font-bold text-gray-700 decoration-wavy underline decoration-orange-500"
+        >
+          Blessed Rafael Saigarai
+        </div>
+        <div class="text-gray-700">
+          ©2026 Blessed Rafael Saigarai<br />All rights reserved
+        </div>
+        <div class="flex gap-2">
+          <a
+            href="https://github.com/akili-frontend"
+            class="text-gray-400 hover:text-gray-500 duration-100"
+            aria-label="GitHub (akili-frontend)"
+            ><span class="i-cib-github w-6 h-6"></span></a
+          >
+          <a
+            href="https://github.com/Masai2005"
+            class="text-gray-400 hover:text-gray-500 duration-100"
+            aria-label="GitHub (Masai2005)"
+            ><span class="i-cib-github w-6 h-6"></span></a
+          >
+          <a
+            href="https://www.linkedin.com/in/blessed-rafael-saigarai-695317284/"
+            class="text-gray-400 hover:text-gray-500 duration-100"
+            aria-label="LinkedIn"
+            ><span class="i-cib-linkedin w-6 h-6"></span></a
+          >
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    import sal from "sal.js";
+    sal();
+  </script>
+</html>

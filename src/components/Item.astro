@@ -1,0 +1,43 @@
+---
+interface Props {
+  title: string;
+  href?: string;
+  startTime: Date;
+  endTime?: Date;
+}
+const { title, startTime, endTime, href } = Astro.props;
+---
+
+<div class="not-prose flex item-parent">
+  <div data-sal="slide-left" style="--sal-duration: 1s;">
+    <h3 class="font-medium text-2xl">
+      {
+        href ? (
+          <a class="underline" {href}>
+            {title}
+          </a>
+        ) : (
+          title
+        )
+      }
+    </h3>
+    <div class="flex">
+      <span class="flex place-items-center gap-1 text-slate-700"
+        ><span class="i-heroicons-clock" aria-label="Clock"></span>{
+          startTime.toLocaleDateString(undefined, {
+            year: "numeric",
+            month: "short",
+          })
+        } - {
+          endTime
+            ? endTime.toLocaleDateString(undefined, {
+                year: "numeric",
+                month: "short",
+              })
+            : "Present"
+        }
+      </span>
+    </div>
+    <p class="prose"><slot /></p>
+  </div>
+</div>
