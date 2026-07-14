@@ -1,43 +1,39 @@
-# Astro Starter Kit: Minimal
+# Blessed Rafael Saigarai
 
-```sh
-bun create astro@latest -- --template minimal
-```
+Personal site — static HTML. Live at [masai2005.github.io](https://masai2005.github.io).
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
+## Structure
 
 ```text
 /
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+├── index.html           # Home
+├── writing/             # Essays (plain HTML)
+├── css/style.css
+├── images/
+├── rss.xml              # Feed for site essays
+└── favicon.*
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Writing a new essay
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+1. Copy an existing file under `writing/` (e.g. `the-illusion-of-mastery.html`) to a new name.
+2. Edit the title, date, and body.
+3. Add an entry to `writing/essays.json` (newest first is applied automatically when built).
+4. Run `node scripts/build-essays.mjs` to regenerate the writing index pages.
+5. Add an `<item>` in `rss.xml` (use absolute `https://masai2005.github.io/...` URLs).
 
-Any static assets, like images, can be placed in the `public/` directory.
+The build script paginates essays at 10 per page (`/writing/`, `/writing/page/2/`, etc.).
 
-## 🧞 Commands
+Newsletter: [blessedrafael.substack.com](https://blessedrafael.substack.com)
 
-All commands are run from the root of the project, from a terminal:
+## Local preview
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `bun install`             | Installs dependencies                            |
-| `bun dev`             | Starts local dev server at `localhost:4321`      |
-| `bun build`           | Build your production site to `./dist/`          |
-| `bun preview`         | Preview your build locally, before deploying     |
-| `bun astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `bun astro -- --help` | Get help using the Astro CLI                     |
+Open `index.html` in a browser, or serve the folder:
 
-## 👀 Want to learn more?
+```sh
+python3 -m http.server 8080
+```
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## Deploy
+
+Push to `main`. GitHub Actions deploys the static files to GitHub Pages.
