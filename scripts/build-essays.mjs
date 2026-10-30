@@ -105,6 +105,8 @@ function renderPage({ page, totalPages, essays }) {
       <div class="wrap">
         <nav class="site-nav" aria-label="Primary">
           <a href="/">Home</a>
+          <a href="/#ai-systems">AI systems</a>
+          <a href="/#work">Work</a>
           <a href="/writing/" aria-current="page">Writing</a>
           <a href="https://blessedrafael.substack.com">Substack</a>
           <a href="/rss.xml">RSS</a>
@@ -130,10 +132,11 @@ function renderPage({ page, totalPages, essays }) {
         <div>© 2026 Blessed Rafael Saigarai. All rights reserved.</div>
         <div class="links">
           <a href="/">Home</a>
+          <a href="/writing/">Writing</a>
           <a href="https://blessedrafael.substack.com">Substack</a>
           <a href="/rss.xml">RSS</a>
           <a href="https://github.com/Masai2005">GitHub</a>
-          <a href="mailto:blessed@akilisofterp.com">Email</a>
+          <a href="mailto:blessed.s@setoff.tax">Email</a>
           <a
             href="https://www.linkedin.com/in/blessed-rafael-saigarai-695317284/"
             >LinkedIn</a

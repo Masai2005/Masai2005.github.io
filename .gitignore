@@ -3,3 +3,4 @@
 .env
 .env.production
 _site/
+.taste-skill/

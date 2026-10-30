@@ -3,10 +3,10 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Blessed Rafael Saigarai</title>
+    <title>Blessed Rafael Saigarai — AI Engineer</title>
     <meta
       name="description"
-      content="Design engineer and founding engineer at Akili Soft Limited. Essays, projects, and notes."
+      content="Founding Engineer (Full Stack &amp; AI Workflows) at Setoff. Every AI demo has a 'trust me bro' phase. I build the GraphRAG retrieval and evaluation harnesses that end it."
     />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" sizes="any" />
@@ -17,12 +17,17 @@
       href="/rss.xml"
     />
     <link rel="stylesheet" href="/css/style.css" />
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
   </head>
   <body>
     <header class="site-header">
       <div class="wrap">
         <nav class="site-nav" aria-label="Primary">
           <a href="/" aria-current="page">Home</a>
+          <a href="#ai-systems">AI systems</a>
+          <a href="#work">Work</a>
           <a href="/writing/">Writing</a>
           <a href="https://blessedrafael.substack.com">Substack</a>
           <a href="/rss.xml">RSS</a>
@@ -30,8 +35,9 @@
       </div>
     </header>
 
-    <main class="wrap">
-      <div class="intro">
+    <main>
+      <div class="hero-band">
+        <section class="intro wrap reveal" aria-labelledby="intro-title">
         <img
           src="/images/me.jpeg"
           alt="Blessed Rafael Saigarai"
@@ -39,13 +45,21 @@
           height="160"
         />
         <div>
-          <h1>Hi, I'm Blessed Rafael Saigarai</h1>
+          <h1 id="intro-title">Blessed Rafael Saigarai</h1>
+          <p class="role">
+            Founding Engineer (Full Stack &amp; AI Workflows) at Setoff
+          </p>
+          <p class="lede">
+            Every AI demo has a "trust me bro" phase. I build the GraphRAG
+            retrieval and evaluation harnesses that end it.
+          </p>
+          <p class="actions">
+            <a class="button" href="#ai-systems">How I build AI systems</a>
+          </p>
           <ul class="social">
+            <li><a href="https://github.com/Masai2005">GitHub</a></li>
             <li>
-              <a href="https://github.com/Masai2005">GitHub</a>
-            </li>
-            <li>
-              <a href="mailto:blessed@akilisofterp.com">blessed@akilisofterp.com</a>
+              <a href="mailto:blessed.s@setoff.tax">blessed.s@setoff.tax</a>
             </li>
             <li>
               <a
@@ -55,99 +69,350 @@
             </li>
           </ul>
         </div>
+        </section>
       </div>
 
-      <p>
-        I am a Design engineer and founding engineer #1 at
-        <a href="https://akilisoft.co">Akili Soft Limited</a>, a software
-        development company based in Dar es Salaam, Tanzania. I design and build
-        the interfaces behind products spanning digital payments, ERP systems,
-        and developer documentation.
-      </p>
-
-      <h2>Writing</h2>
-      <p>
-        Essays and notes live on this site under
-        <a href="/writing/">Writing</a>. Subscribe via
-        <a href="/rss.xml">RSS</a>, or follow the newsletter on
-        <a href="https://blessedrafael.substack.com">Substack</a>.
-      </p>
-
-      <h2>Experience</h2>
-      <div class="entry">
-        <h3>
-          <a href="https://akilisoft.co"
-            >Founding Engineer #1 at Akili Soft Limited</a
-          >
-        </h3>
-        <p class="meta">Oct 2025 – Present</p>
+      <div class="page-body wrap">
+        <section class="reveal" aria-labelledby="now-title">
+        <h2 id="now-title">Now</h2>
         <p>
-          As the first engineer at Akili Soft Limited, I lead frontend
-          development across the company's product suite — from customer-facing
-          web apps to internal tooling — using TypeScript and modern frontend
-          frameworks.
+          At <strong>Setoff</strong> I work on Protas AI, tax software that reads
+          a business's documents, maps how it operates, and prepares a case for
+          human review. The model is the easy part. The work is the system
+          around it: ingest the documents, build a graph that preserves their
+          structure, retrieve the evidence that matters, and make every answer
+          traceable to a source.
         </p>
+        <p>
+          Before Setoff I was founding engineer #1 at
+          <a href="https://akilisoft.co">Akili Soft Limited</a>, where I built
+          the frontend for digital payments, ERP, and developer documentation.
+        </p>
+      </section>
+
+      <section id="ai-systems" class="reveal" aria-labelledby="ai-systems-title">
+        <h2 id="ai-systems-title">How I build AI systems</h2>
+        <p>
+          Grounded answers are an engineering property, not a prompting trick. I
+          work in three layers, because a demo is not an eval.
+        </p>
+
+        <div class="block reveal">
+          <h3>Retrieval is a graph problem</h3>
+          <p>
+            Vector search finds similar text. It does not know that a receipt
+            belongs to an invoice, that an invoice belongs to a filing period,
+            or that two documents describe the same entity. I build a lexical
+            graph (documents, chunks, entities, community summaries) so
+            retrieval can enter at a chunk and traverse to evidence a vector
+            alone would miss.
+          </p>
+          <p>
+            Depending on the question, that means graph-enhanced vector search,
+            parent-child retrieval for context, or a community summary when the
+            question is about the whole corpus rather than one passage.
+          </p>
+
+          <figure class="diagram">
+            <p class="diagram-title">The retrieval path</p>
+            <ol class="flow">
+              <li>
+                <span class="flow-label">Query</span>
+                <strong>Rewrite and extract</strong>
+                <span class="flow-detail"
+                  >Normalize the question, pull entities, expand terms.</span
+                >
+              </li>
+              <li>
+                <span class="flow-label">Entry</span>
+                <strong>Find a starting point</strong>
+                <span class="flow-detail"
+                  >Vector, full-text, or metadata filter.</span
+                >
+              </li>
+              <li>
+                <span class="flow-label">Traverse</span>
+                <strong>Walk the graph</strong>
+                <span class="flow-detail"
+                  >Chunk to entity to related evidence.</span
+                >
+              </li>
+              <li>
+                <span class="flow-label">Rerank</span>
+                <strong>Prune the context</strong>
+                <span class="flow-detail"
+                  >Score, deduplicate, fit the budget.</span
+                >
+              </li>
+              <li>
+                <span class="flow-label">Answer</span>
+                <strong>Ground and cite</strong>
+                <span class="flow-detail"
+                  >Every claim points back to a source.</span
+                >
+              </li>
+            </ol>
+            <figcaption>
+              Patterns after the
+              <a href="https://graphrag.com/concepts/intro-to-graphrag/"
+                >GraphRAG Pattern Catalog</a
+              >. The entry-point search is the invisible first half; the
+              retrieval query does the traversal.
+            </figcaption>
+          </figure>
+
+          <figure class="diagram">
+            <p class="diagram-title">The graph underneath</p>
+            <svg
+              class="graph"
+              viewBox="0 0 420 230"
+              role="img"
+              aria-labelledby="graph-title graph-desc"
+            >
+              <title id="graph-title">
+                A lexical graph of documents, chunks, entities, and community
+                summaries.
+              </title>
+              <desc id="graph-desc">
+                A document contains chunks. A chunk mentions entities and is
+                summarized by a community summary. Retrieval enters at a chunk
+                or entity and follows these edges.
+              </desc>
+              <defs>
+                <marker
+                  id="arrow"
+                  viewBox="0 0 10 10"
+                  refX="9"
+                  refY="5"
+                  markerWidth="6"
+                  markerHeight="6"
+                  orient="auto-start-reverse"
+                >
+                  <path d="M 0 0 L 10 5 L 0 10 z" class="edge-fill" />
+                </marker>
+              </defs>
+              <g class="edge-lines">
+                <line
+                  x1="210"
+                  y1="54"
+                  x2="210"
+                  y2="82"
+                  marker-end="url(#arrow)"
+                />
+                <line
+                  x1="190"
+                  y1="129"
+                  x2="130"
+                  y2="162"
+                  marker-end="url(#arrow)"
+                />
+                <line
+                  x1="230"
+                  y1="129"
+                  x2="290"
+                  y2="162"
+                  marker-end="url(#arrow)"
+                />
+              </g>
+              <g class="node">
+                <rect x="140" y="10" width="140" height="44" />
+                <text x="210" y="37" text-anchor="middle">Document</text>
+              </g>
+              <g class="node">
+                <rect x="140" y="85" width="140" height="44" />
+                <text x="210" y="112" text-anchor="middle">Chunk</text>
+              </g>
+              <g class="node">
+                <rect x="10" y="165" width="140" height="44" />
+                <text x="80" y="192" text-anchor="middle">Entity</text>
+              </g>
+              <g class="node">
+                <rect x="270" y="165" width="140" height="44" />
+                <text x="340" y="192" text-anchor="middle">Community</text>
+              </g>
+              <g class="edge-labels">
+                <text x="220" y="73">contains</text>
+                <text x="118" y="148" text-anchor="end">mentions</text>
+                <text x="302" y="148">summarizes</text>
+              </g>
+            </svg>
+            <figcaption>
+              A lexical graph keeps the document's structure. Chunks are the
+              unit of retrieval; entities and community summaries are the edges
+              that make multi-hop questions answerable.
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="block reveal">
+          <h3>The harness is where quality lives</h3>
+          <p>
+            An answer that cannot be reproduced cannot be trusted. Every system
+            I build has a harness around it: query rewriting and entity
+            extraction before retrieval, reranking and pruning after it,
+            structured outputs, and a trace for every step.
+          </p>
+          <p>
+            I keep a small, hard eval set built from real failures. Each fix
+            becomes a regression test; each release runs against the same cases.
+            Latency and token cost are budgets, not afterthoughts.
+          </p>
+        </div>
+
+        <div class="block reveal">
+          <h3>It has to ship</h3>
+          <p>
+            Retrieval quality is wasted if the product cannot use it. I build
+            the Go services and APIs around the model: streaming responses,
+            citations the reviewer can open, permissions on every document, and
+            a human review step before anything is filed.
+          </p>
+          <p>
+            The output is not a chat transcript. It is a case file with
+            evidence, and a reviewer who can see why the system said what it
+            said.
+          </p>
+        </div>
+
+        <h3 class="patterns-title">Patterns I reach for</h3>
+        <dl class="patterns">
+          <div>
+            <dt>Basic retriever</dt>
+            <dd>Vector or full-text entry into the graph.</dd>
+          </div>
+          <div>
+            <dt>Graph-enhanced vector search</dt>
+            <dd>Vector hits expanded through relationships.</dd>
+          </div>
+          <div>
+            <dt>Parent-child retriever</dt>
+            <dd>Match small chunks, return the larger passage.</dd>
+          </div>
+          <div>
+            <dt>Local retriever</dt>
+            <dd>Entity-focused traversal for specific questions.</dd>
+          </div>
+          <div>
+            <dt>Global community summary retriever</dt>
+            <dd>Corpus-level questions over community summaries.</dd>
+          </div>
+          <div>
+            <dt>Dynamic Cypher generation</dt>
+            <dd>Structured questions translated into graph queries.</dd>
+          </div>
+        </dl>
+      </section>
+
+      <section id="work" class="reveal" aria-labelledby="work-title">
+        <h2 id="work-title">Selected work</h2>
+        <div class="entry">
+          <h3>Setoff: Founding Engineer (Full Stack &amp; AI Workflows)</h3>
+          <p class="meta">Oct 2026 – Present · Dar es Salaam</p>
+          <p>
+            Protas AI is tax software for businesses. I work on the retrieval
+            and agent layer: GraphRAG over tax documents, workflow mapping, and
+            case preparation with source-grounded review. The stack is Go
+            services, document ingestion, and an evaluation harness.
+          </p>
+        </div>
+        <div class="entry">
+          <h3>
+            <a href="https://akilisoft.co">Akili Soft Limited</a>: Founding
+            Engineer #1 (Frontend)
+          </h3>
+          <p class="meta">Oct 2025 – Present · Dar es Salaam</p>
+          <p>
+            First engineer at Akili Soft. Built the interfaces for
+            <a href="https://digiwakala.com">DigiWakala</a>, an operating system
+            for mobile-money agents;
+            <a href="https://akilisofterp.com">Akili Soft ERP</a>;
+            <a href="https://docs.akilisofterp.com">the ERP documentation site</a
+            >; and
+            <a href="https://status.akilisoft.co">the public status page</a>.
+          </p>
+        </div>
+        <div class="entry">
+          <h3>
+            <a href="https://mauzoonline.com">UneRub Systems</a>: Co-founder
+            &amp; Software Engineer
+          </h3>
+          <p class="meta">May 2023 – Present · Tanzania</p>
+          <p>
+            Co-founded UneRub Systems and built MauzoOnline, commerce and
+            record-keeping software for small businesses.
+          </p>
+        </div>
+      </section>
+
+      <section class="reveal" aria-labelledby="writing-title">
+        <h2 id="writing-title">Writing</h2>
+        <p>
+          Essays and notes live under <a href="/writing/">Writing</a>. Subscribe
+          via <a href="/rss.xml">RSS</a>, or follow the newsletter on
+          <a href="https://blessedrafael.substack.com">Substack</a>.
+        </p>
+      </section>
+
+      <section class="reveal" aria-labelledby="background-title">
+        <h2 id="background-title">Background</h2>
+        <div class="entry">
+          <h3>Defang Software Labs: Campus Advocate</h3>
+          <p class="meta">Mar 2025 – Jan 2026</p>
+          <p>
+            Ran campus programs for Defang, an AI DevOps agent that deploys
+            applications to any cloud.
+          </p>
+        </div>
+        <div class="entry">
+          <h3>Becky Tech Labs: Bootcamp Facilitator</h3>
+          <p class="meta">Nov 2024 – Dec 2025</p>
+          <p>
+            Taught Python fundamentals and AI-assisted coding to early-career
+            developers.
+          </p>
+        </div>
+        <div class="entry">
+          <h3>
+            Software Engineering Community, Mbeya University of Science and
+            Technology: President
+          </h3>
+          <p class="meta">2023 – 2025</p>
+          <p>
+            Led a student community around software engineering practice,
+            workshops, and peer learning. Selected as a 2024 Pan African Youth
+            Ambassador for Internet Governance (PAYAIG), English cohort.
+          </p>
+        </div>
+        <div class="entry">
+          <h3>
+            Diploma of Engineering, Electrical and Electronics Engineering at
+            Mbeya University of Science and Technology
+          </h3>
+          <p class="meta">Oct 2022 – Jul 2025</p>
+          <p>
+            First Class (4.7/5.0). E-Mobility research on charging
+            infrastructure adoption in Tanzania.
+          </p>
+        </div>
+      </section>
       </div>
 
-      <h2>Education</h2>
-      <div class="entry">
-        <h3>
-          Diploma of Engineering, Electrical and Electronics Engineering —
-          Mbeya University of Science and Technology
-        </h3>
-        <p class="meta">Oct 2022 – Jul 2025</p>
-        <p>
-          First Class (4.7/5.0). Participated in E-Mobility Research focused on
-          charging infrastructure adoption in Tanzania.
-        </p>
+      <div class="contact-band">
+        <section class="wrap reveal" aria-labelledby="contact-title">
+          <h2 id="contact-title">Contact</h2>
+          <p>
+            For questions about GraphRAG, retrieval systems, or building
+            AI-native products, email
+            <a href="mailto:blessed.s@setoff.tax">blessed.s@setoff.tax</a>, or
+            find me on
+            <a
+              href="https://www.linkedin.com/in/blessed-rafael-saigarai-695317284/"
+              >LinkedIn</a
+            >
+            and <a href="https://github.com/Masai2005">GitHub</a>.
+          </p>
+        </section>
       </div>
-
-      <h2>Projects</h2>
-      <div class="entry">
-        <h3><a href="https://digiwakala.com">DigiWakala</a></h3>
-        <p class="meta">Oct 2025 – Present</p>
-        <p>
-          Operating system (Recording everything online) for mobile money agents
-          in Tanzania.
-        </p>
-      </div>
-      <div class="entry">
-        <h3><a href="https://akilisoft.co">Akili Soft</a></h3>
-        <p class="meta">Oct 2025 – Present</p>
-        <p>Company website and marketing presence for Akili Soft Limited.</p>
-      </div>
-      <div class="entry">
-        <h3><a href="https://akilisofterp.com">Akili Soft ERP</a></h3>
-        <p class="meta">Oct 2025 – Present</p>
-        <p>Enterprise resource planning platform for business operations.</p>
-      </div>
-      <div class="entry">
-        <h3><a href="https://docs.akilisofterp.com">Akili Soft ERP Docs</a></h3>
-        <p class="meta">Oct 2025 – Present</p>
-        <p>
-          Developer and user documentation site powered by Strapi as a headless
-          CMS.
-        </p>
-      </div>
-      <div class="entry">
-        <h3><a href="https://status.akilisoft.co">Akili Soft Status</a></h3>
-        <p class="meta">Oct 2025 – Present</p>
-        <p>
-          Public uptime monitor for Akili Soft services, powered by Kerner.io.
-        </p>
-      </div>
-
-      <h2>Want to work together?</h2>
-      <p>
-        Interested in working with me on a frontend project or product? Email
-        <a href="mailto:blessed@akilisofterp.com">blessed@akilisofterp.com</a>,
-        reach out on
-        <a
-          href="https://www.linkedin.com/in/blessed-rafael-saigarai-695317284/"
-          >LinkedIn</a
-        >, or connect via
-        <a href="https://github.com/Masai2005">GitHub</a>.
-      </p>
     </main>
 
     <footer class="site-footer">
@@ -159,7 +424,7 @@
           <a href="https://blessedrafael.substack.com">Substack</a>
           <a href="/rss.xml">RSS</a>
           <a href="https://github.com/Masai2005">GitHub</a>
-          <a href="mailto:blessed@akilisofterp.com">Email</a>
+          <a href="mailto:blessed.s@setoff.tax">Email</a>
           <a
             href="https://www.linkedin.com/in/blessed-rafael-saigarai-695317284/"
             >LinkedIn</a
@@ -167,5 +432,30 @@
         </div>
       </div>
     </footer>
+    <script>
+      (function () {
+        var items = document.querySelectorAll(".reveal");
+        if (!("IntersectionObserver" in window)) {
+          items.forEach(function (el) {
+            el.classList.add("is-visible");
+          });
+          return;
+        }
+        var observer = new IntersectionObserver(
+          function (entries) {
+            entries.forEach(function (entry) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { rootMargin: "0px 0px -8% 0px", threshold: 0.08 }
+        );
+        items.forEach(function (el) {
+          observer.observe(el);
+        });
+      })();
+    </script>
   </body>
 </html>
