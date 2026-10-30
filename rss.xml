@@ -5,8 +5,15 @@
     <link>https://masai2005.github.io/</link>
     <description>Essays and notes by Blessed Rafael Saigarai.</description>
     <language>en</language>
-    <lastBuildDate>Mon, 13 Jul 2026 16:53:50 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 30 Oct 2026 12:00:00 GMT</lastBuildDate>
     <atom:link href="https://masai2005.github.io/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Trust me bro is not a benchmark.</title>
+      <link>https://masai2005.github.io/writing/trust-me-bro-is-not-a-benchmark.html</link>
+      <guid isPermaLink="true">https://masai2005.github.io/writing/trust-me-bro-is-not-a-benchmark.html</guid>
+      <pubDate>Fri, 30 Oct 2026 12:00:00 GMT</pubDate>
+      <description>Every AI demo looks smart until a real document shows up.</description>
+    </item>
     <item>
       <title>The illusion of mastery: A brain dump on the Dunning-Kruger effect.</title>
       <link>https://masai2005.github.io/writing/the-illusion-of-mastery.html</link>

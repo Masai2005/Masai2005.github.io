@@ -41,13 +41,13 @@ function renderEssayList(essays) {
           <h2>
             <a href="/writing/${escapeHtml(essay.slug)}.html">${escapeHtml(essay.title)}</a>
           </h2>
-          <p class="meta">${formatDate(essay.date)}</p>
+          <p>${formatDate(essay.date)}</p>
           <p>${escapeHtml(essay.description)}</p>
         </li>`
     )
     .join("");
 
-  return `<ul class="essay-list">${items}\n      </ul>`;
+  return `<ul>${items}\n      </ul>`;
 }
 
 function renderPagination(page, totalPages) {
@@ -55,23 +55,19 @@ function renderPagination(page, totalPages) {
     return "";
   }
 
-  const parts = [`<span class="pagination-status">Page ${page} of ${totalPages}</span>`];
+  const parts = [`Page ${page} of ${totalPages}`];
 
   if (page > 1) {
     const newerUrl = pageUrl(page - 1);
-    parts.unshift(
-      `<a class="pagination-prev" href="${newerUrl}">← Newer essays</a>`
-    );
+    parts.unshift(`<a href="${newerUrl}">← Newer essays</a>`);
   }
 
   if (page < totalPages) {
     const olderUrl = pageUrl(page + 1);
-    parts.push(
-      `<a class="pagination-next" href="${olderUrl}">Older essays →</a>`
-    );
+    parts.push(`<a href="${olderUrl}">Older essays →</a>`);
   }
 
-  return `<nav class="pagination" aria-label="Essay pages">\n        ${parts.join("\n        ")}\n      </nav>`;
+  return `<nav aria-label="Essay pages">\n        ${parts.join("\n        ")}\n      </nav>`;
 }
 
 function renderPage({ page, totalPages, essays }) {
@@ -98,23 +94,18 @@ function renderPage({ page, totalPages, essays }) {
       title="Blessed Rafael Saigarai — Writing"
       href="/rss.xml"
     />
-    <link rel="stylesheet" href="/css/style.css" />
   </head>
   <body>
-    <header class="site-header">
-      <div class="wrap">
-        <nav class="site-nav" aria-label="Primary">
-          <a href="/">Home</a>
-          <a href="/#ai-systems">AI systems</a>
-          <a href="/#work">Work</a>
-          <a href="/writing/" aria-current="page">Writing</a>
-          <a href="https://blessedrafael.substack.com">Substack</a>
-          <a href="/rss.xml">RSS</a>
-        </nav>
-      </div>
+    <header>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/writing/" aria-current="page">Writing</a>
+        <a href="https://blessedrafael.substack.com">Substack</a>
+        <a href="/rss.xml">RSS</a>
+      </nav>
     </header>
 
-    <main class="wrap">
+    <main>
       <h1>Writing</h1>
       <p>
         Essays and notes published here. For the newsletter, visit
@@ -126,23 +117,21 @@ function renderPage({ page, totalPages, essays }) {
       ${renderPagination(page, totalPages)}
     </main>
 
-    <footer class="site-footer">
-      <div class="wrap">
-        <div class="name">Blessed Rafael Saigarai</div>
-        <div>© 2026 Blessed Rafael Saigarai. All rights reserved.</div>
-        <div class="links">
-          <a href="/">Home</a>
-          <a href="/writing/">Writing</a>
-          <a href="https://blessedrafael.substack.com">Substack</a>
-          <a href="/rss.xml">RSS</a>
-          <a href="https://github.com/Masai2005">GitHub</a>
-          <a href="mailto:blessed.s@setoff.tax">Email</a>
-          <a
-            href="https://www.linkedin.com/in/blessed-rafael-saigarai-695317284/"
-            >LinkedIn</a
-          >
-        </div>
-      </div>
+    <footer>
+      <p>Blessed Rafael Saigarai</p>
+      <p>© 2026 Blessed Rafael Saigarai. All rights reserved.</p>
+      <p>
+        <a href="/">Home</a> ·
+        <a href="/writing/">Writing</a> ·
+        <a href="https://blessedrafael.substack.com">Substack</a> ·
+        <a href="/rss.xml">RSS</a> ·
+        <a href="https://github.com/Masai2005">GitHub</a> ·
+        <a href="mailto:blessed.s@setoff.tax">Email</a> ·
+        <a
+          href="https://www.linkedin.com/in/blessed-rafael-saigarai-695317284/"
+          >LinkedIn</a
+        >
+      </p>
     </footer>
   </body>
 </html>

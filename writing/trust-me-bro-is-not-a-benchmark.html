@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      Trust me bro is not a benchmark. — Blessed Rafael Saigarai
+    </title>
+    <meta
+      name="description"
+      content="Every AI demo looks smart until a real document shows up."
+    />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="Blessed Rafael Saigarai — Writing"
+      href="/rss.xml"
+    />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/writing/">Writing</a>
+        <a href="https://blessedrafael.substack.com">Substack</a>
+        <a href="/rss.xml">RSS</a>
+      </nav>
+    </header>
+
+    <main>
+      <article>
+        <header>
+          <h1>Trust me bro is not a benchmark.</h1>
+          <p>
+            Every AI demo looks smart until a real document shows up.
+          </p>
+          <p>
+            <time datetime="2026-10-30">30 Oct 2026</time>
+          </p>
+        </header>
+
+        <p>
+          If you have been in an AI demo, you know the phase. The model answers a
+          question. The answer sounds clean. The room nods. Nobody asks for the
+          eval. That is the trust me bro phase, and every AI demo has one.
+        </p>
+
+        <p>
+          The problem is that "sounds right" and "is right" are two different
+          products. A model can write a confident answer about a contract it
+          never read, a tax rule it half-remembered, or a number it made up. It
+          does not blush. It does not say "I am not sure." It just keeps typing.
+          Funny right??
+        </p>
+
+        <p>
+          For a long time I thought the fix was a better prompt. More context.
+          "Please do not hallucinate." That is not a strategy. It is a prayer
+          with extra steps. The model is the easy part. The system around it is
+          the job.
+        </p>
+
+        <h2>The boring part is the product</h2>
+
+        <p>
+          So what does the system look like? The boring version: find the right
+          documents, keep their structure, retrieve the evidence that matters,
+          and make every answer point back to a source. If the answer cannot
+          show you where it came from, it is not an answer. It is a vibe.
+        </p>
+
+        <p>
+          Then you need the part nobody puts in the demo: the eval. A small,
+          hard set of cases built from real failures. The question that broke
+          last week. The document that confused the parser. The edge case a
+          customer found before you did. You run the set on every change. You
+          look at the traces. You fix the failure, and the fix becomes a test.
+          If you cannot replay a failure, you cannot fix it. You can only hope.
+        </p>
+
+        <h2>The part where it stops being a demo</h2>
+
+        <p>
+          I work on tax software now. That changes the stakes. A wrong answer is
+          not a funny chatbot moment. Someone files a return. The reviewer needs
+          to see the evidence, not just the conclusion. So the output is not a
+          chat transcript. It is a case file with citations, permissions, and a
+          human review step before anything goes out. The AI can draft. The
+          system has to prove.
+        </p>
+
+        <p>
+          I am not anti-model. I am anti-handwave. I do not trust the model. I
+          trust the checks around it: retrieval, citations, traces, regression
+          tests, latency and cost budgets. The model gets the credit when it
+          works. The harness gets the blame when it does not.
+        </p>
+
+        <p>
+          Every AI demo has a trust me bro phase. The difference between a demo
+          and a system is whether you end it. Show me the eval. Show me the
+          failure. Show me the fix. Then I will trust you. Not because you said
+          so.
+        </p>
+
+        <blockquote>
+          <p>
+            Trust me bro is not a benchmark. A demo is not an eval.
+          </p>
+        </blockquote>
+      </article>
+
+      <p><a href="/writing/">← All writing</a></p>
+    </main>
+
+    <footer>
+      <p>Blessed Rafael Saigarai</p>
+      <p>© 2026 Blessed Rafael Saigarai. All rights reserved.</p>
+      <p>
+        <a href="/writing/">Writing</a> ·
+        <a href="https://blessedrafael.substack.com">Substack</a> ·
+        <a href="/rss.xml">RSS</a> ·
+        <a href="https://github.com/Masai2005">GitHub</a> ·
+        <a href="mailto:blessed.s@setoff.tax">Email</a> ·
+        <a href="https://www.linkedin.com/in/blessed-rafael-saigarai-695317284/"
+          >LinkedIn</a
+        >
+      </p>
+    </footer>
+  </body>
+</html>
