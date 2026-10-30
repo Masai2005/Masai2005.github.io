@@ -94,6 +94,7 @@ function renderPage({ page, totalPages, essays }) {
       title="Blessed Rafael Saigarai — Writing"
       href="/rss.xml"
     />
+    <link rel="stylesheet" href="/css/style.css" />
   </head>
   <body>
     <header>

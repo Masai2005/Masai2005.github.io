@@ -1,6 +1,6 @@
 # Blessed Rafael Saigarai
 
-Personal site — plain static HTML, no CSS. Live at [masai2005.github.io](https://masai2005.github.io).
+Personal site — plain static HTML with a small stylesheet. Live at [masai2005.github.io](https://masai2005.github.io).
 
 ## Structure
 
@@ -8,6 +8,7 @@ Personal site — plain static HTML, no CSS. Live at [masai2005.github.io](https
 /
 ├── index.html           # Home
 ├── writing/             # Essays (plain HTML)
+├── css/style.css        # Minimal layout
 ├── images/
 ├── rss.xml              # Feed for site essays
 └── favicon.*
